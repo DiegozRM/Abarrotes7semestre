@@ -23,6 +23,6 @@
     </property>
   </jsp-config>
   <welcome-file-list>
-        <welcome-file>AutentificarAdmon.jsp</welcome-file>
-    </welcome-file-list>
+    <welcome-file>AutentificarAdmon.jsp</welcome-file>
+  </welcome-file-list>
 </glassfish-web-app>

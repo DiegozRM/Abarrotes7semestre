@@ -17,40 +17,44 @@
         <title>Acceso</title>
     </head>
     <body>
-        <form method="POST">
+        <div id="menu">
+            <ul>
+                <li><a href="Conocenos.jsp" class="normalMenu">Conocenos</a></li>
+                <li><a href="Productos.jsp" class="normalMenu">Productos</a></li>
+                <li><a href="Contacto.jsp" class="normalMenu">Contacto</a></li>
+                <li><a href="Acceso.jsp" class="normalMenu">Ingresar</a></li>
+                <li><a href="registro.jsp" class="normalMenu">Registrate_Aquí</a></li>
+            </ul>
+        </div>
+        <form method="POST" style="margin-top: 50px;">
             <center>
-                <h1>Acceso del empleado</h1>
-                <div id="menu">
-                    <ul>
-                        <li><a href="Conocenos.jsp"  class="normalMenu">Conocenos</a></li>
-                        <li><a href="Productos.jsp"  class="normalMenu">Productos</a></li>
-                        <li><a href="Contacto.jsp"  class="normalMenu">Contacto</a></li>
-                        <li><a href="Acceso.jsp"  class="normalMenu">Ingresar</a></li>
-                        <li><a href="registro.jsp"  class="normalMenu">Registrate_Aquí</a></li>
-                    </ul>
-                </div>
-                <table border="1" width="30%" cellpadding="3">
+                <h1>🔑 Acceso del Empleado</h1>
+                <table border="0" width="400px" cellpadding="0" style="box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
                     <thead>
                         <tr>
-                            <th colspan="2">Login</th>
+                            <th colspan="2" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #2C2C2C; padding: 20px; font-size: 20px;">Iniciar Sesión</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="background: white;">
                         <tr>
-                            <td>Nombre</td>
-                            <td><input type="text" name="usuario" value="" /></td>
+                            <td style="padding: 15px; font-weight: 600;">Usuario:</td>
+                            <td style="padding: 15px;"><input type="text" name="usuario" value="" placeholder="Ingresa tu usuario" required style="width: 100%;"/></td>
                         </tr>
                         <tr>
-                            <td>Password</td>
-                            <td><input type="password" name="contrasenia" value="" /></td>
+                            <td style="padding: 15px; font-weight: 600;">Contraseña:</td>
+                            <td style="padding: 15px;"><input type="password" name="contrasenia" value="" placeholder="Ingresa tu contraseña" required style="width: 100%;"/></td>
                         </tr>
                         <tr>
-                            <td><input type="submit" name="enviar" value="Entrar" /></td>
-                            <td><input type="reset" value="Limpiar" /></td>
+                            <td colspan="2" style="padding: 20px; text-align: center; background: #f9f9f9;">
+                                <input type="submit" name="enviar" value="✓ Entrar" style="margin-right: 10px;"/>
+                                <input type="reset" value="✗ Limpiar" />
+                            </td>
                         </tr>
                     </tbody>
                 </table>
-                <a href="index.html">Pagina Principal</a>
+                <p style="margin-top: 20px;">
+                    <a href="index.html" style="color: #FFA500; font-weight: 600; text-decoration: none; border: 2px solid #FFD700; padding: 10px 20px; border-radius: 20px; display: inline-block; transition: all 0.3s ease;">← Página Principal</a>
+                </p>
             </center>
         </form>
         
@@ -75,25 +79,44 @@
                         // Verificamos el tipo de usuario y mostramos el contenido correspondiente
                         if (empleado.getTipoUsuario().equals("Empleado") || empleado.getTipoUsuario().equals("Administrador")) {
         %>
-                        <center>
-                            <h3>Bienvenido <% out.println(uname.getNombreEmpleado()); %>, eres <% out.println(uname.getTipoUsuario()); %></h3>
-                            <p><b>PORTAL PARA LOS PRODUCTOS</b></p>
-                            <input type="button" onclick="location.href = 'EliminarProducto.jsp'" value="Productos" name="boton" />
-                            <p><b>PORTAL PARA LA CONFIGURACION DE CLIENTES</b></p>
-                            <input type="button" onclick="location.href = 'EliminarCliente.jsp'" value="Clientes" name="boton" />
-                            <%  if (empleado.getTipoUsuario().equals("Administrador")) {
-%>
-        <p><b>PORTAL PARA LA CONFIGURACION DE EMPLEADOS</b></p>
-                            <input type="button" onclick="location.href = 'EliminarEmpleado.jsp'" value="Empleados" name="boton" />
-    <% } %>
-                        </center>
+                        <div class="admin-panel" style="max-width: 800px; margin: 30px auto; padding: 40px; background: white; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                            <center>
+                                <h2 style="color: #FFD700; background: #2C2C2C; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                                    👋 Bienvenido, <strong><% out.println(uname.getNombreEmpleado()); %></strong>
+                                    <br><span style="font-size: 18px; color: #FFD700;">💼 <%= uname.getTipoUsuario() %></span>
+                                </h2>
+                                
+                                <div style="background: #FFF9E6; padding: 30px; border-radius: 10px; border: 2px solid #FFD700; margin-bottom: 20px;">
+                                    <h3 style="color: #2C2C2C; margin-bottom: 15px;">📦 Gestión de Productos</h3>
+                                    <p style="color: #666; margin-bottom: 15px;">Administra el inventario y catálogo de productos</p>
+                                    <input type="button" onclick="location.href = 'EliminarProducto.jsp'" value="📊 Ir a Productos" name="boton" style="font-size: 16px; padding: 15px 30px;" />
+                                </div>
+                                
+                                <div style="background: #FFF9E6; padding: 30px; border-radius: 10px; border: 2px solid #FFD700; margin-bottom: 20px;">
+                                    <h3 style="color: #2C2C2C; margin-bottom: 15px;">👥 Gestión de Clientes</h3>
+                                    <p style="color: #666; margin-bottom: 15px;">Administra la base de datos de clientes</p>
+                                    <input type="button" onclick="location.href = 'EliminarCliente.jsp'" value="📝 Ir a Clientes" name="boton" style="font-size: 16px; padding: 15px 30px;" />
+                                </div>
+                                
+                                <%  if (empleado.getTipoUsuario().equals("Administrador")) { %>
+                                <div style="background: #FFF9E6; padding: 30px; border-radius: 10px; border: 2px solid #FFD700; margin-bottom: 20px;">
+                                    <h3 style="color: #2C2C2C; margin-bottom: 15px;">👨‍💼 Gestión de Empleados</h3>
+                                    <p style="color: #666; margin-bottom: 15px;">Administra usuarios y permisos del sistema</p>
+                                    <input type="button" onclick="location.href = 'EliminarEmpleado.jsp'" value="🔑 Ir a Empleados" name="boton" style="font-size: 16px; padding: 15px 30px;" />
+                                </div>
+                                <% } %>
+                            </center>
+                        </div>
         <%
                             break;
                         } else {
         %>
                         <center>
-                            <h3>ACCESO DENEGADO - SOLO PERSONAL AUTORIZADO</h3>
-                            <a href="index.html">Página Principal</a>
+                            <div class="mensaje-error" style="max-width: 600px; background: #f8d7da; color: #721c24; padding: 20px; border-radius: 10px; border-left: 4px solid #dc3545; margin: 30px auto;">
+                                <h3 style="color: #721c24; margin-bottom: 10px;">❌ ACCESO DENEGADO</h3>
+                                <p>Solo personal autorizado puede acceder a esta área</p>
+                                <a href="index.html" style="color: #721c24; text-decoration: underline; font-weight: 600;">← Volver a la Página Principal</a>
+                            </div>
                         </center>
         <%
                             break;
@@ -104,8 +127,11 @@
                 if (!us) {
         %>
                     <center>
-                        <h3>El usuario y/o contraseña son incorrectos.</h3>
-                        <a href="AutentificarEmpleado.jsp">Intentar de nuevo</a>
+                        <div class="mensaje-error" style="max-width: 600px; background: #f8d7da; color: #721c24; padding: 20px; border-radius: 10px; border-left: 4px solid #dc3545; margin: 30px auto;">
+                            <h3 style="color: #721c24; margin-bottom: 10px;">⚠️ Error de Autenticación</h3>
+                            <p>El usuario y/o contraseña son incorrectos</p>
+                            <a href="AutentificarAdmon.jsp" style="color: #721c24; text-decoration: underline; font-weight: 600;">🔄 Intentar de nuevo</a>
+                        </div>
                     </center>
         <%
                 }

@@ -3,8 +3,8 @@
 <hibernate-configuration>
     <session-factory>
     
-        <!-- LA LÍNEA MÁS IMPORTANTE: RUTA RELATIVA PARA PORTABILIDAD -->
-        <property name="hibernate.connection.url">jdbc:sqlite:SQLite3DB/abarrotes.db</property>
+        <!-- LA LÍNEA MÁS IMPORTANTE: RUTA ABSOLUTA PARA TU COMPUTADORA -->
+        <property name="hibernate.connection.url">jdbc:sqlite:D:/Universidad/Semestre 7/EvoSoftInteligente/Project-AbarrotesFinal/Project-AbarrotesFinal/Project-Abarrotes-Remake-main-2/SQLite3DB/abarrotes.db</property>
         
         <!-- Estas propiedades ya estaban bien -->
         <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>

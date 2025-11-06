@@ -3,11 +3,11 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: linear-gradient(135deg, #FFF9E6 0%, #FFFDF7 100%);
 	min-height: 100vh;
 	font-size: 16px;
 	line-height: 1.6;
@@ -27,8 +27,8 @@ body {
 #cabecera {
 	width: 100%;
 	padding: 20px 30px;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-	color: white;
+	background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+	color: #2C2C2C;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -63,20 +63,20 @@ body {
 }
 
 #Inicio a {
-	background: rgba(255, 255, 255, 0.2);
-	color: white;
+	background: rgba(44, 44, 44, 0.15);
+	color: #2C2C2C;
 	padding: 10px 20px;
 	border-radius: 25px;
 	text-decoration: none;
 	font-size: 14px;
 	font-weight: 600;
 	transition: all 0.3s ease;
-	border: 2px solid rgba(255, 255, 255, 0.3);
+	border: 2px solid rgba(44, 44, 44, 0.2);
 }
 
 #Inicio a:hover {
-	background: white;
-	color: #667eea;
+	background: #2C2C2C;
+	color: #FFD700;
 	transform: translateY(-2px);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -84,7 +84,7 @@ body {
 /* Menú de navegación moderno */
 #menu {
 	width: 100%;
-	background: linear-gradient(to right, #11998e 0%, #38ef7d 100%);
+	background: linear-gradient(to right, #FFD700 0%, #FFED4E 100%);
 	padding: 0;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -106,7 +106,7 @@ body {
 #menu ul li a {
 	display: block;
 	padding: 18px 25px;
-	color: white;
+	color: #2C2C2C;
 	text-decoration: none;
 	font-size: 16px;
 	font-weight: 600;
@@ -121,13 +121,13 @@ body {
 	left: 50%;
 	width: 0;
 	height: 3px;
-	background: white;
+	background: #2C2C2C;
 	transition: all 0.3s ease;
 	transform: translateX(-50%);
 }
 
 #menu ul li a:hover {
-	background: rgba(255, 255, 255, 0.2);
+	background: rgba(44, 44, 44, 0.1);
 	transform: translateY(-2px);
 }
 
@@ -143,13 +143,14 @@ body {
 }
 
 #noticias, #publicidad {
-	background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-	color: white;
+	background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+	color: #2C2C2C;
 	padding: 20px;
 	border-radius: 10px;
 	margin-bottom: 20px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 	transition: transform 0.3s ease;
+	border: 2px solid #FFD700;
 }
 
 #noticias:hover, #publicidad:hover {
@@ -202,13 +203,197 @@ h3 {
 }
 
 a {
-	color: #667eea;
+	color: #FFA500;
 	text-decoration: none;
 	transition: color 0.3s ease;
 }
 
 a:hover {
-	color: #764ba2;
+	color: #FF8C00;
+}
+
+/* Estilos para formularios de administración */
+table {
+	width: 100%;
+	max-width: 800px;
+	margin: 20px auto;
+	border-collapse: collapse;
+	background: white;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+table thead {
+	background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+	color: #2C2C2C;
+}
+
+table thead th {
+	padding: 15px;
+	font-weight: 700;
+	text-align: left;
+	font-size: 16px;
+}
+
+table tbody td {
+	padding: 12px 15px;
+	border-bottom: 1px solid #f0f0f0;
+	color: #333;
+}
+
+table tbody tr:hover {
+	background: #FFF9E6;
+	transition: background 0.3s ease;
+}
+
+/* Inputs y botones modernos */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+textarea,
+select {
+	width: 100%;
+	padding: 12px 15px;
+	border: 2px solid #FFD700;
+	border-radius: 8px;
+	font-size: 14px;
+	box-sizing: border-box;
+	transition: all 0.3s ease;
+	background: white;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+	border-color: #FFA500;
+	outline: none;
+	box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+input[type="submit"],
+input[type="button"],
+button {
+	background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+	color: #2C2C2C;
+	padding: 12px 30px;
+	border: none;
+	border-radius: 25px;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 10px rgba(255, 165, 0, 0.3);
+	margin: 5px;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover {
+	background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 15px rgba(255, 140, 0, 0.4);
+}
+
+input[type="reset"] {
+	background: #f0f0f0;
+	color: #666;
+	padding: 12px 30px;
+	border: 2px solid #ddd;
+	border-radius: 25px;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	margin: 5px;
+}
+
+input[type="reset"]:hover {
+	background: #e0e0e0;
+	border-color: #ccc;
+}
+
+/* Títulos modernos */
+h1 {
+	color: #2C2C2C;
+	font-size: 32px;
+	font-weight: 700;
+	text-align: center;
+	margin: 20px 0;
+	text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.3);
+}
+
+h2 {
+	color: #2C2C2C;
+	font-size: 26px;
+	font-weight: 600;
+	margin: 15px 0;
+}
+
+h3 {
+	font-size: 22px;
+	font-weight: 600;
+	color: #2C2C2C;
+	margin: 15px 0;
+}
+
+/* Contenedor de formulario centrado */
+form {
+	max-width: 600px;
+	margin: 30px auto;
+	padding: 30px;
+	background: white;
+	border-radius: 15px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+center table {
+	background: white;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+/* Mensajes de éxito/error */
+.mensaje-exito {
+	background: #d4edda;
+	color: #155724;
+	padding: 15px;
+	border-radius: 8px;
+	border-left: 4px solid #28a745;
+	margin: 20px auto;
+	max-width: 600px;
+}
+
+.mensaje-error {
+	background: #f8d7da;
+	color: #721c24;
+	padding: 15px;
+	border-radius: 8px;
+	border-left: 4px solid #dc3545;
+	margin: 20px auto;
+	max-width: 600px;
+}
+
+/* Panel de administración */
+.admin-panel {
+	background: white;
+	padding: 30px;
+	border-radius: 15px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	margin: 20px;
+}
+
+.admin-panel h3 {
+	color: #FFD700;
+	background: #2C2C2C;
+	padding: 15px;
+	border-radius: 8px;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
 /* Responsive */
@@ -237,5 +422,13 @@ a:hover {
 		margin-left: 0;
 		padding: 15px;
 	}
+	
+	form {
+		padding: 20px;
+		margin: 15px;
+	}
+	
+	table {
+		font-size: 14px;
+	}
 }
-
