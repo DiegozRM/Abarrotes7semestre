@@ -1,4 +1,4 @@
-<%-- 
+﻿<%-- 
     Document   : registro
     Created on : 3/01/2014, 11:04:00 AM
     Author     : Search
@@ -15,11 +15,11 @@
         <script type="text/javascript">
             function permite(elEvento, permitidos) { // Variables que definen los caracteres permitidos 
                 var numeros = "0123456789";
-                var caracteres = " abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+                var caracteres = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 var numeros_caracteres = numeros + caracteres;
                 var teclas_especiales = [8, 37, 39, 46];
                 // 8 = BackSpace, 46 = Supr, 37 = flecha izquierda, 39 = flecha derecha 
-                // Seleccionar los caracteres a partir del parámetro de la función 
+                // Seleccionar los caracteres a partir del parmetro de la funcin 
                 switch (permitidos) {
                     case 'num':
                         permitidos = numeros;
@@ -106,7 +106,7 @@
                 valor7 = document.getElementById("password").value;
 
                 if (isNaN(valor7)) {
-                    alert("*Ingresa Contraseña");
+                    alert("*Ingresa Contrasea");
                     //return false; 
                 }
 
@@ -142,92 +142,103 @@
         </script>
     </head>
     <body>
-        <h1>Portal de creacion de cuenta</h1>
         <div id="menu">
             <ul>
-                <li><a href="Conocenos.jsp"  class = "normalMenu">Conocenos</a></li>
-                <li><a href="Productos.jsp"  class = "normalMenu">Productos </a></li>
-                <li><a href="Contacto.jsp"  class = "normalMenu">Contacto</a></li>
-                <li><a href="Acceso.jsp"  class = "normalMenu">Ingresar</a></li>
-                <li> <a href="registro.jsp"  class = "normalMenu">Registrate_Aquí</a></li>
+                <li><a href="Conocenos.jsp"> Conocenos</a></li>
+                <li><a href="Productos.jsp"> Productos</a></li>
+                <li><a href="Contacto.jsp"> Contacto</a></li>
+                <li><a href="Acceso.jsp"> Ingresar</a></li>
+                <li><a href="registro.jsp"> Registrate</a></li>
             </ul>
         </div>
+        <h1> Portal de Creacin de Cuenta</h1>
         <%
             if (request.getParameter("submit") == null) {
         %> 
-        <form onsubmit="return validacion()">
+        <form onsubmit="return validacion()" style="max-width: 600px;">
             <CENTER>
-                <HR>
-                <I>Crear Cuenta Cliente</I>
-                <table border="1"  cellpadding="0" cellspacing="0" 
-                       height="40%" width="25">
+                <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
                     <tr>
-                        <td>
-                            <input id="Nombre" name="nombre" placeholder="Nombre"
-                                   title="Nombre del cliente" type="text" value="" size="25"
+                        <td colspan="2" style="background: #FFC107; color: white; padding: 15px; border-radius: 8px 8px 0 0; text-align: center; font-weight: 600; font-size: 18px;"> Crear Cuenta Cliente</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; background: #f8f9fa;">
+                            <label style="font-weight: 600; color: #2C3E50; display: block; margin-bottom: 8px;"> Nombre:</label>
+                            <input id="Nombre" name="nombre" placeholder="Tu nombre completo"
+                                   title="Nombre del cliente" type="text" value="" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 14px;"
                                    onkeypress="return permite(event, 'car')"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <input id="Apell_pat" name="apellPat" placeholder="Apellido paterno "
-                                   title="Apellido Paterno" type="text" value="" size="25"
+                        <td style="padding: 15px;">
+                            <label style="font-weight: 600; color: #2C3E50; display: block; margin-bottom: 8px;"> Apellido Paterno:</label>
+                            <input id="Apell_pat" name="apellPat" placeholder="Tu apellido paterno"
+                                   title="Apellido Paterno" type="text" value="" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 14px;"
                                    onkeypress="return permite(event, 'car')"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <input id="Apell_mat" name="apellMat" placeholder="Apellido materno"
-                                   title="Apellido materno" type="text" value="" size="25"
+                        <td style="padding: 15px; background: #f8f9fa;">
+                            <label style="font-weight: 600; color: #2C3E50; display: block; margin-bottom: 8px;"> Apellido Materno:</label>
+                            <input id="Apell_mat" name="apellMat" placeholder="Tu apellido materno"
+                                   title="Apellido materno" type="text" value="" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 14px;"
                                    onkeypress="return permite(event, 'car')"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <input id="Fecha_nac" name="fechaNac" placeholder="Fecha de nacimiento "
-                                   title="Fecha de nacimiento" type="text" value="" size="25"
+                        <td style="padding: 15px;">
+                            <label style="font-weight: 600; color: #2C3E50; display: block; margin-bottom: 8px;"> Fecha de Nacimiento:</label>
+                            <input id="Fecha_nac" name="fechaNac" placeholder="DD/MM/YYYY"
+                                   title="Fecha de nacimiento" type="text" value="" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 14px;"
                                    onkeypress="return permite(event, 'num_car')"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <input id="RFC" name="rfc" placeholder="RFC "
-                                   title="RFC cliente" type="text" value="" size="25"
+                        <td style="padding: 15px; background: #f8f9fa;">
+                            <label style="font-weight: 600; color: #2C3E50; display: block; margin-bottom: 8px;"> RFC:</label>
+                            <input id="RFC" name="rfc" placeholder="Tu RFC"
+                                   title="RFC cliente" type="text" value="" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 14px; text-transform: uppercase;"
                                    onkeypress="return permite(event, 'num_car')"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <input id="Correo" name="correo" placeholder="Email"
-                                   title="Correo electronico" type="text" value="" size="25"/>
+                        <td style="padding: 15px;">
+                            <label style="font-weight: 600; color: #2C3E50; display: block; margin-bottom: 8px;"> Correo Electrnico:</label>
+                            <input id="Correo" name="correo" placeholder="tu@email.com"
+                                   title="Correo electronico" type="email" value="" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 14px;"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <input id="Password" name="password" placeholder="Contraseña"
-                                   title="Contraseña" type="password" value="" size="25"/>
+                        <td style="padding: 15px; background: #f8f9fa;">
+                            <label style="font-weight: 600; color: #2C3E50; display: block; margin-bottom: 8px;"> Contrasea:</label>
+                            <input id="Password" name="password" placeholder="Tu contrasea segura"
+                                   title="Contrasea" type="password" value="" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 14px;"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <input id="direccion" name="direccion" placeholder="Dirección"
-                                   title="Dirección" type="text" value="" size="25"/>
+                        <td style="padding: 15px;">
+                            <label style="font-weight: 600; color: #2C3E50; display: block; margin-bottom: 8px;"> Direccin:</label>
+                            <input id="direccion" name="direccion" placeholder="Tu direccin completa"
+                                   title="Direccin" type="text" value="" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 14px;"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <input id="telefono" name="telefono" placeholder="Telefono"
-                                   title="Telefono" type="text" value="" size="10" onkeypress="return limita(10);"/>
+                        <td style="padding: 15px; background: #f8f9fa;">
+                            <label style="font-weight: 600; color: #2C3E50; display: block; margin-bottom: 8px;"> Telfono:</label>
+                            <input id="telefono" name="telefono" placeholder="10 dgitos"
+                                   title="Telefono" type="text" value="" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 14px;" onkeypress="return limita(10);"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <input id="submit" name="submit" type="submit" value="Crear">
-                            <input id="limpiar" name="limpiar" type="reset" value="Limpiar">
+                        <td style="padding: 20px; text-align: center; background: #ffffff; border-radius: 0 0 8px 8px;">
+                            <input id="submit" name="submit" type="submit" value=" Crear Cuenta" style="background: #FFC107; color: white; padding: 12px 30px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; margin-right: 10px; font-size: 14px;">
+                            <input id="limpiar" name="limpiar" type="reset" value="\udd Limpiar" style="background: #e8e8e8; color: #2C3E50; padding: 12px 30px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 14px;">
                         </td>
                     </tr>
                 </table>
-                <a href="index.html">Pagina Principal</a>
+                <p style="margin-top: 20px;">
+                    <a href="index.html" style="color: #FFC107; font-weight: 600; text-decoration: none; border: 2px solid #FFC107; padding: 10px 20px; border-radius: 6px; display: inline-block; transition: all 0.3s ease;"> Pgina Principal</a>
+                </p>
             </CENTER>
         </form> 
         <%        } else {%>
@@ -248,8 +259,8 @@
                     <th>Fecha de nacimiento</th>
                     <th>RFC</th>
                     <th>Email</th>
-                    <th>Contraseña</th>
-                    <%--<th>Dirección</th>
+                    <th>Contrasea</th>
+                    <%--<th>Direccin</th>
                     <th>Telefono</th>--%>
                 </tr>
             </thead>
@@ -266,13 +277,23 @@
                     <%--<td><%= cliente.getDireccion()%></td>
                     <td><%= cliente.getTelefono()%></td>--%>
                 </tr>
-            <h2>Registro completado</h2>
-        </tbody>
-    </table> 
+            </tbody>
+        </table>
+        <div class="mensaje-exito" style="max-width: 700px; background: #e8f5e9; color: #2e7d32; padding: 20px; border-radius: 8px; border-left: 4px solid #4caf50; margin: 30px auto; text-align: center;">
+            <h2 style="color: #2e7d32; margin-bottom: 15px; font-size: 24px;"> Registro Completado</h2>
+            <p style="font-size: 16px;">Tu cuenta se ha creado exitosamente. Ya puedes iniciar sesin.</p>
+            <a href="Acceso.jsp" style="color: #2e7d32; font-weight: 600; text-decoration: underline; display: inline-block; margin-top: 10px;"> Ir a Iniciar Sesin</a>
+        </div>
     <% } else {%>
-    <h2>Lo sentimos, no se pudo crear la cuenta</h2>
+    <div class="mensaje-error" style="max-width: 600px; background: #ffebee; color: #c62828; padding: 20px; border-radius: 8px; border-left: 4px solid #e53935; margin: 30px auto; text-align: center;">
+        <h2 style="color: #c62828; margin-bottom: 10px;"> Error en el Registro</h2>
+        <p>Lo sentimos, no se pudo crear la cuenta. Intntalo nuevamente.</p>
+        <a href="registro.jsp" style="color: #c62828; font-weight: 600; text-decoration: underline; display: inline-block; margin-top: 10px;"> Intentar de nuevo</a>
+    </div>
     <%}
         }
     %>
 </body>
 </html>
+
+

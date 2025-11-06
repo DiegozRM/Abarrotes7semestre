@@ -1,4 +1,4 @@
-<%-- 
+﻿<%-- 
     Document   : login
     Created on : 2/11/2013, 02:13:10 PM
     Author     : USUARIO
@@ -36,3 +36,4 @@
         out.println("Datos no validos <a href='AutentificarAdmon.jsp'>Intenta de nuevo</a>");
     }
 %>
+

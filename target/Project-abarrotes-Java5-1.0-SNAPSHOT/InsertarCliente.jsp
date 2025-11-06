@@ -1,4 +1,4 @@
-<%-- 
+﻿<%-- 
     Document   : InsertarCliente
     Created on : 2/01/2014, 03:53:37 PM
     Author     : Search
@@ -62,14 +62,14 @@
                     </tr>
                     <tr>
                         <td>
-                            <input id="Password" name="password" placeholder="Contraseña"
-                                   title="Contraseña" type="password" value="" size="25"/>
+                            <input id="Password" name="password" placeholder="Contrasea"
+                                   title="Contrasea" type="password" value="" size="25"/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input id="direccion" name="direccion" placeholder="Dirección"
-                                   title="Dirección" type="text" value="" size="25"/>
+                            <input id="direccion" name="direccion" placeholder="Direccin"
+                                   title="Direccin" type="text" value="" size="25"/>
                         </td>
                     </tr>
                     <tr>
@@ -106,8 +106,8 @@
                     <th>Fecha de nacimiento</th>
                     <th>RFC</th>
                     <th>Email</th>
-                    <th>Contraseña</th>
-                    <th>Dirección</th>
+                    <th>Contrasea</th>
+                    <th>Direccin</th>
                     <th>Telefono</th>
                 </tr>
             </thead>
@@ -134,3 +134,5 @@
     %>
 </body>
 </html>
+
+

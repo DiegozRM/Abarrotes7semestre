@@ -1,4 +1,4 @@
-<%-- 
+﻿<%-- 
     Document   : ModificarCliente
     Created on : 4/01/2014, 05:24:56 PM
     Author     : Search
@@ -35,7 +35,7 @@
                         <th>Fecha de nacimiento</th>
                         <th>RFC</th>
                         <th>Correo</th>
-                        <th>Contraseña</th>
+                        <th>Contrasea</th>
                         <th>Direccion</th>
                         <th>Telefono</th>
                         <th>Carrito</th>
@@ -114,14 +114,14 @@
                     </tr>
                     <tr>
                         <td>
-                            <input id="Password" name="password" placeholder="Contraseña"
-                                   title="Contraseña" type="password" value="<%= listaClientes.get(i - 1).getPassword() %>" size="25"/>
+                            <input id="Password" name="password" placeholder="Contrasea"
+                                   title="Contrasea" type="password" value="<%= listaClientes.get(i - 1).getPassword() %>" size="25"/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input id="direccion" name="direccion" placeholder="Dirección"
-                                   title="Dirección" type="text" value="<%= listaClientes.get(i - 1).getDireccion() %>" size="25"/>
+                            <input id="direccion" name="direccion" placeholder="Direccin"
+                                   title="Direccin" type="text" value="<%= listaClientes.get(i - 1).getDireccion() %>" size="25"/>
                         </td>
                     </tr>
                     <tr>
@@ -153,3 +153,5 @@
         %>
     </body>
 </html>
+
+

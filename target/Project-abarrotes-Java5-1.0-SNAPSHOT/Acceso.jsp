@@ -1,4 +1,4 @@
-<%@page import="Beans.CompraDAO"%>
+﻿<%@page import="Beans.CompraDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Mapeos.Compra"%>
 <%@page import="java.util.List"%>
@@ -9,48 +9,54 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="css.css" title="style">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
-    </head>
-    <body>
-        <form method="post">
-            <center>
-                <h1>Acceso del cliente</h1>
-                <div id="menu">
-                    <ul>
-                        <li><a href="Conocenos.jsp" class="normalMenu">Conocenos</a></li>
-                        <li><a href="Productos.jsp" class="normalMenu">Productos</a></li>
-                        <li><a href="Contacto.jsp" class="normalMenu">Contacto</a></li>
-                        <li><a href="Acceso.jsp" class="normalMenu">Ingresar</a></li>
-                        <li><a href="registro.jsp" class="normalMenu">Registrate_Aquí</a></li>
-                    </ul>
-                </div>
-                <table border="1" width="30%" cellpadding="3">
-                    <thead>
-                        <tr>
-                            <th colspan="2">Login</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Nombre</td>
-                            <td><input type="text" name="usuario" value="" /></td>
-                        </tr>
-                        <tr>
-                            <td>Password</td>
-                            <td><input type="password" name="contrasenia" value="" /></td>
-                        </tr>
-                        <tr>
-                            <td><input type="submit" name="enviar" value="Entrar" /></td>
-                            <td><input type="reset" value="Limpiar" /></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <a href="index.html">Pagina Principal</a>
-            </center>
-        </form>
+<head>
+    <link rel="stylesheet" type="text/css" href="css.css" title="style">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso del Cliente - Abarrotes El Compi</title>
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <li><a href="Conocenos.jsp">Conocenos</a></li>
+            <li><a href="Productos.jsp">Productos</a></li>
+            <li><a href="Contacto.jsp">Contacto</a></li>
+            <li><a href="Acceso.jsp">Ingresar</a></li>
+            <li><a href="registro.jsp">Registrate</a></li>
+        </ul>
+    </div>
+
+    <form method="post">
+        <center>
+            <h1>Acceso del Cliente</h1>
+            <table border="0" width="450px" cellpadding="0" style="box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+                <thead>
+                    <tr>
+                        <th colspan="2" style="background: #FFC107; color: #ffffff; padding: 20px; font-size: 18px; font-weight: 600;">Iniciar Sesin</th>
+                    </tr>
+                </thead>
+                <tbody style="background: white;">
+                    <tr>
+                        <td style="padding: 15px; font-weight: 600; color: #2C3E50;">Usuario:</td>
+                        <td style="padding: 15px;"><input type="text" name="usuario" value="" placeholder="Ingresa tu nombre de usuario" required style="width: 100%;"/></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; font-weight: 600; color: #2C3E50;">Contrasea:</td>
+                        <td style="padding: 15px;"><input type="password" name="contrasenia" value="" placeholder="Ingresa tu contrasea" required style="width: 100%;"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding: 20px; text-align: center; background: #f8f9fa;">
+                            <input type="submit" name="enviar" value=" Entrar" style="margin-right: 10px;"/>
+                            <input type="reset" value=" Limpiar" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 20px;">
+                <a href="index.html" style="color: #FFC107; font-weight: 600; text-decoration: none; border: 2px solid #FFC107; padding: 10px 20px; border-radius: 6px; display: inline-block; transition: all 0.3s ease;"> Pgina Principal</a>
+            </p>
+        </center>
+    </form>
 
         <% if (request.getParameter("enviar") != null) { %>
         <jsp:setProperty name="uname" property="*" />
@@ -65,7 +71,7 @@
             for (Cliente cliente : listaClientes) {
                 if (usuario.equals(cliente.getNombre()) && contrasenia.equals(cliente.getPassword())) {
                     us = true;
-                    // Iniciar sesión
+                    // Iniciar sesin
                     session.setAttribute("usuario", cliente);
                     int idCliente = cliente.getIdCliente();
                     List<List> compras = new ArrayList<List>();
@@ -85,10 +91,12 @@
     </center>
     <% } else { %>
     <center>
-        <h3>Es posible que el usuario y/o contraseña sean incorrectos.</h3>
+        <h3>Es posible que el usuario y/o contrasea sean incorrectos.</h3>
         <a href="Acceso.jsp">Intentar de nuevo</a>
     </center>
     <% } %>
     <% }%>
 </body>
 </html>
+
+

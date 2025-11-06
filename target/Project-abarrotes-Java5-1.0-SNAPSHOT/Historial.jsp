@@ -1,6 +1,6 @@
-<%-- 
+﻿<%-- 
     Document   : Historial
-    Created on : Nov 13, 2024, 1:21:01 PM
+    Created on : Nov 13, 2024, 1:21:01PM
     Author     : laremo
 --%>
 
@@ -29,7 +29,7 @@
                 <li><a href="Productos.jsp" class="normalMenu">Productos</a></li>
                 <li><a href="Contacto.jsp" class="normalMenu">Contacto</a></li>
                 <li><a href="Acceso.jsp" class="normalMenu">Ingresar</a></li>
-                <li><a href="registro.jsp" class="normalMenu">Registrate Aquí</a></li>
+                <li><a href="registro.jsp" class="normalMenu">Registrate Aqu</a></li>
             </ul>
         </div>
 
@@ -60,7 +60,7 @@
                                         <tr>
                                             <th>Nombre producto</th>
                                             <th>Marca</th>
-                                            <th>Presentación</th>
+                                            <th>Presentacin</th>
                                             <th>P. Unitario</th>
                                             <th>Cantidad</th>
                                             <th>Total</th>
@@ -110,7 +110,7 @@
 
                 // Validate the quantity
                 if (isNaN(quantityToAdd) || quantityToAdd <= 0) {
-                    alert('Por favor, ingrese una cantidad válida.');
+                    alert('Por favor, ingrese una cantidad vlida.');
                     return;
                 }
 
@@ -266,3 +266,5 @@
     </body>
 
 </html>
+
+

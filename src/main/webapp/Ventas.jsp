@@ -1,4 +1,4 @@
-<%@page import="com.google.gson.reflect.TypeToken"%>
+﻿<%@page import="com.google.gson.reflect.TypeToken"%>
 <%@page import="java.util.Map"%>
 <%@page import="com.google.gson.Gson"%>
 <%@page import="java.util.ArrayList"%>
@@ -15,18 +15,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css.css" title="style">
-        <title>producto</title>
+        <title>Comprar Productos - Abarrotes El Compi</title>
     </head>
     <body>
-        <h1>Portal de información del producto</h1>
+        <h1>Carrito de Compras</h1>
         <div id="menu">
             <ul>
                 <li><a href="Conocenos.jsp" class="normalMenu">Conocenos</a></li>
                 <li><a href="Productos.jsp" class="normalMenu">Productos</a></li>
                 <li><a href="Contacto.jsp" class="normalMenu">Contacto</a></li>
                 <li><a href="Acceso.jsp" class="normalMenu">Ingresar</a></li>
-                <li><a href="registro.jsp" class="normalMenu">Registrate Aquí</a></li>
+                <li><a href="registro.jsp" class="normalMenu">Registrate</a></li>
             </ul>
         </div>
 
@@ -45,56 +46,64 @@
             }
         %>
         <form method="post">
-            <center>
-                <hr>
-                <i>Oprime el botón "Añadir" del producto que deseas comprar.</i>
-                </hr>
-                <i>---------- </i><tr><i>BIENVENID@</i>.<%= b.getNombre()%><i></tr>
-                    <i>---------- </i><a href="Acceso.jsp">Cerrar Sesion</a>
-                    <table border="1">
-                        <thead>
-                            <tr>
-                                <th>Nombre producto</th>
-                                <th>Presentación</th>
-                                <th>Caducidad</th>
-                                <th>P. Unitario</th>
-                                <th>Existencias</th>
-                                <th>Fecha</th>
-                                <th>Marca</th>
-                                <th>Seleccionar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% for (Producto a : listaproductos) {%>
-                            <tr>
-                                <td><%= a.getNombreProducto()%></td>
-                                <td><%= a.getPresentacion()%></td>
-                                <td><%= a.getCaducidad()%></td>
-                                <td><%= a.getPrecioUni()%></td>
-                                <td><%= a.getExistencias()%></td>
-                                <td><%= a.getFech()%></td>
-                                <td><%= a.getMarca()%></td>
-                                <td>
-                                    <% if (a.getExistencias() > 0) {%>
-                                    <input id="item-<%=a.getIdProducto()%>" type="number" min="0" max="<%=a.getExistencias()%>" value="0"/>
-                                    <button type="button" onclick="addToCart(<%= a.getIdProducto()%>, '<%= a.getNombreProducto()%>', <%= a.getPrecioUni()%>, <%= a.getExistencias()%>)">Añadir</button>
-                                    <% } else { %>
-                                    ND
-                                    <% } %>
-                                </td>
-                            </tr>
-                            <% }%>
-                        </tbody>
-                    </table>
-                    <div class="cart"> 
-                        <div id="cartItems">
-                            <h4>Productos en el carrito:</h4>
-                            <ul id="cartList"></ul>
-                            <div id="totalCost">Total de todos los productos: 0</div>
+            <div style="max-width: 1400px; margin: 0 auto; padding: 20px;">
+                <div style="display: grid; grid-template-columns: 1fr 350px; gap: 30px;">
+                    <!-- Tabla de productos -->
+                    <div>
+                        <div style="background: #FFC107; color: white; padding: 20px; border-radius: 8px 8px 0 0; margin-bottom: 0;">
+                            <h2 style="margin: 0; font-size: 20px;">Bienvenido, <%= b.getNombre()%></h2>
+                            <p style="margin: 5px 0 0 0; font-size: 14px;">Selecciona los productos que deseas comprar</p>
                         </div>
-                        <button type="button" onclick="saveCart()">Comprar</button>
+                        <table border="0" style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background: #FFC107; color: white;">
+                                    <th style="padding: 14px; text-align: left; font-weight: 600;">Nombre</th>
+                                    <th style="padding: 14px; text-align: left; font-weight: 600;">Presentacion</th>
+                                    <th style="padding: 14px; text-align: left; font-weight: 600;">Precio</th>
+                                    <th style="padding: 14px; text-align: center; font-weight: 600;">Stock</th>
+                                    <th style="padding: 14px; text-align: center; font-weight: 600;">Cantidad</th>
+                                    <th style="padding: 14px; text-align: center; font-weight: 600;">Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for (Producto a : listaproductos) {%>
+                                <tr style="border-bottom: 1px solid #e8e8e8; background: #f8f9fa;">
+                                    <td style="padding: 12px 14px; color: #2C3E50; font-weight: 500;"><strong><%= a.getNombreProducto()%></strong></td>
+                                    <td style="padding: 12px 14px; color: #555; font-size: 14px;"><%= a.getPresentacion()%></td>
+                                    <td style="padding: 12px 14px; color: #FFC107; font-weight: 600;">$<%= a.getPrecioUni()%></td>
+                                    <td style="padding: 12px 14px; text-align: center; color: #555; font-size: 14px;"><%= a.getExistencias()%></td>
+                                    <td style="padding: 12px 14px; text-align: center;">
+                                        <% if (a.getExistencias() > 0) {%>
+                                        <input id="item-<%=a.getIdProducto()%>" type="number" min="0" max="<%=a.getExistencias()%>" value="0" style="width: 60px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; text-align: center;"/>
+                                        <% } else { %>
+                                        <span style="color: #999; font-weight: 600;">Agotado</span>
+                                        <% } %>
+                                    </td>
+                                    <td style="padding: 12px 14px; text-align: center;">
+                                        <% if (a.getExistencias() > 0) {%>
+                                        <button type="button" onclick="addToCart(<%= a.getIdProducto()%>, '<%= a.getNombreProducto()%>', <%= a.getPrecioUni()%>, <%= a.getExistencias()%>)" style="background: #4caf50; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 12px;">Agregar</button>
+                                        <% } %>
+                                    </td>
+                                </tr>
+                                <% }%>
+                            </tbody>
+                        </table>
                     </div>
-            </center>
+                    
+                    <!-- Carrito Lateral -->
+                    <div id="cartContainer" style="background: white; border: 2px solid #FFC107; border-radius: 8px; padding: 20px; height: fit-content; position: sticky; top: 20px;">
+                        <div style="background: #FFC107; color: white; padding: 15px; margin: -20px -20px 20px -20px; border-radius: 6px 6px 0 0; text-align: center;">
+                            <h3 style="margin: 0; font-size: 18px;">Carrito</h3>
+                        </div>
+                        <div id="cartItems">
+                            <ul id="cartList" style="list-style: none; margin: 0; padding: 0; max-height: 400px; overflow-y: auto;"></ul>
+                            <div id="totalCost" style="background: #FFC107; color: white; padding: 12px; border-radius: 4px; margin-top: 15px; font-weight: 600; text-align: center; font-size: 16px;">Total: $0</div>
+                        </div>
+                        <button type="button" onclick="saveCart()" style="width: 100%; background: #4caf50; color: white; padding: 12px; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; margin-top: 15px; font-size: 14px;">Confirmar Compra</button>
+                        <a href="Acceso.jsp" style="display: block; text-align: center; margin-top: 10px; color: #FFC107; font-weight: 600; text-decoration: none;">Cerrar Sesion</a>
+                    </div>
+                </div>
+            </div>
         </form>
 
         <script>
@@ -115,7 +124,7 @@
 
                 // Validate the quantity
                 if (isNaN(quantityToAdd) || quantityToAdd <= 0) {
-                    alert('Por favor, ingrese una cantidad válida.');
+                    alert('Por favor, ingrese una cantidad vlida.');
                     return;
                 }
 
@@ -135,6 +144,9 @@
 
                 // Display the updated cart item
                 displayCartItem(productId, productName, cart[productId].quantity, productPrice);
+
+                // Reset input field
+                inputElement.value = '0';
 
                 // Update sessionStorage and totals
                 sessionStorage.setItem("cart", JSON.stringify(cart));
@@ -171,26 +183,30 @@
                 if (!listItem) {
                     listItem = document.createElement('li');
                     listItem.setAttribute('data-product-id', productId);
+                    listItem.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 12px; margin: 8px 0; background: #f8f9fa; border-radius: 4px; border-left: 4px solid #FFC107;';
 
                     // Create a span for the product details
                     const productText = document.createElement('span');
                     productText.className = 'productText';
+                    productText.style.cssText = 'flex: 1; color: #2C3E50; font-size: 14px; font-weight: 500;';
                     listItem.appendChild(productText);
 
                     // Add a remove button
                     const removeButton = document.createElement('button');
                     removeButton.textContent = '-';
-                    removeButton.className = 'rm-btn';
+                    removeButton.style.cssText = 'background: #e53935; color: white; border: none; border-radius: 4px; cursor: pointer; width: 30px; height: 30px; font-size: 16px; font-weight: bold; margin-left: 10px;';
                     removeButton.onclick = () => removeFromCart(productId);
+                    removeButton.onmouseover = function() { this.style.background = '#d32f2f'; };
+                    removeButton.onmouseout = function() { this.style.background = '#e53935'; };
                     listItem.appendChild(removeButton);
 
                     cartList.appendChild(listItem);
                 }
 
                 // Update the text for the product details
-                const total = price * quantity;
+                const total = (price * quantity).toFixed(2);
                 const productText = listItem.querySelector('.productText');
-                productText.textContent = productName + ': ' + quantity + ' (Total: ' + total + ')';
+                productText.textContent = productName + ' x' + quantity + ' = $' + total;
             }
 
 
@@ -199,7 +215,7 @@
                 Object.values(cart).forEach(product => {
                     grandTotal += product.price * product.quantity;
                 });
-                document.getElementById("totalCost").textContent = 'Total de todos los productos: ' + grandTotal;
+                document.getElementById("totalCost").textContent = 'Total: $' + grandTotal.toFixed(2);
             }
 
             async function saveCart() {
@@ -234,60 +250,7 @@
         li {
             list-style: none;
         }
-
-        .cart{
-            position: absolute;
-            top: 180px;
-            left: calc(100vw - 425px);
-            width: 420px;
-            border: 1px solid #1a1a1a;
-            border-radius: 12px;
-            background: #fff;
-        }
-
-        h4{
-            margin: 0px;
-        }
-
-        #cartList {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            box-sizing: border-box;
-            margin: 0px;
-            padding: 12px 0px;
-        }
-
-        #cartList li{
-            text-align: left;
-            width: 100%;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-sizing: border-box;
-            border: 1px solid #e1e1e1;
-            padding: 0px 8px
-        }
-
-        .rm-btn{
-            width: 24px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            background: #CC1A1A;
-            color: white;
-            border: #BB1111 solid 1px;
-            border-radius: 4px;
-            cursor:pointer;
-            padding: 0px 4px;
-        }
-
-        .rm-btn:hover{
-            background: #AA1414;
-            border: #BB0000 solid 1px;
-
-        }
     </style>
 </html>
+
+

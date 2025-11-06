@@ -1,4 +1,4 @@
-<%@page import="Beans.EmpleadoDAO"%>
+﻿<%@page import="Beans.EmpleadoDAO"%>
 <%@page import="Mapeos.Empleado"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -93,7 +93,7 @@
             <div class="info">
                 <h3>Credenciales de acceso:</h3>
                 <p><strong>Usuario:</strong> Admin</p>
-                <p><strong>Contraseña:</strong> admin123</p>
+                <p><strong>Contrasea:</strong> admin123</p>
                 <p><strong>Tipo:</strong> Administrador</p>
             </div>
         <% } else { %>
@@ -106,3 +106,5 @@
     </div>
 </body>
 </html>
+
+

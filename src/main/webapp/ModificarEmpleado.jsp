@@ -1,4 +1,4 @@
-<%-- 
+﻿<%-- 
     Document   : consultar
     Created on : 1/11/2013, 06:31:09 PM
     Author     : Search
@@ -30,7 +30,7 @@
                         <tr>
                             <th>Numero empleado</th>
                             <th>Nombre empleado</th>
-                            <th>Contraseña</th>
+                            <th>Contrasea</th>
                             <th>Apellido paterno</th>
                             <th>Apellido materno</th>
                             <th>Fecha de nacimiento</th>
@@ -86,8 +86,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <input id="password" name="password" placeholder="Contraseña"
-                                   title="Contraseña" type="password" value="<%= listaEmpleados.get(i - 1).getPassword()%>" size="25"/>
+                            <input id="password" name="password" placeholder="Contrasea"
+                                   title="Contrasea" type="password" value="<%= listaEmpleados.get(i - 1).getPassword()%>" size="25"/>
                         </td>
                     </tr>
                     <tr>
@@ -190,7 +190,7 @@
                 <tr>
                     <th>Numero empleado</th>
                     <th>Nombre empleado</th>
-                    <th>Contraseña</th>
+                    <th>Contrasea</th>
                     <th>Apellido paterno</th>
                     <th>Apellido materno</th>
                     <th>Fecha de nacimiento</th>
@@ -231,3 +231,5 @@
     %>
 </body>
 </html>
+
+

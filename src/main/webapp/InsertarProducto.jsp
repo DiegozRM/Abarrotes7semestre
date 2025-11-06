@@ -1,4 +1,4 @@
-<%-- 
+﻿<%-- 
     Document   : InsertarProducto
     Created on : 3/01/2014, 01:12:57 PM
     Author     : Search
@@ -13,7 +13,7 @@
         <script type="text/javascript">
             function permite(elEvento, permitidos) { // Variables que definen los caracteres permitidos 
                 var numeros = "0123456789";
-                var caracteres = " abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+                var caracteres = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 var numeros_caracteres = numeros + caracteres;
                 var teclas_especiales = [8, 37, 39, 46];
 
@@ -62,7 +62,7 @@
                     alert("*Falta el Nombre");
                     //return false; 
                 }
-                valor2 = document.getElementById("Presentación").value;
+                valor2 = document.getElementById("Presentacin").value;
                 if (isNaN(valor2)) {
                     alert("*Indica la Presentacion");
                     //return false; 
@@ -237,3 +237,5 @@
     %>
 </body>
 </html>
+
+

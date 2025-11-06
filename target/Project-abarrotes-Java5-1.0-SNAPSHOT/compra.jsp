@@ -1,4 +1,4 @@
-<%-- 
+﻿<%-- 
     Document   : compra
     Created on : 3/11/2013, 12:19:50 PM
     Author     : USUARIO
@@ -27,10 +27,10 @@
         <h1>Compras!</h1>
         <%
             ProductoDAO productoDAO = new ProductoDAO();
-            CompraDAO compraDAO = new CompraDAO();  // Asegúrate de haber importado la clase CompraDAO
+            CompraDAO compraDAO = new CompraDAO();  // Asegrate de haber importado la clase CompraDAO
             Cliente b = (Cliente) session.getAttribute("usuario");
             ClienteDAO clienteDAO = new ClienteDAO();
-            // Obtener el parámetro 'comprar' que contiene los datos en formato 'id,cantidad,id,cantidad...'
+            // Obtener el parmetro 'comprar' que contiene los datos en formato 'id,cantidad,id,cantidad...'
             String comprarParam = request.getParameter("comprar");
 
             if (comprarParam != null && !comprarParam.isEmpty()) {
@@ -58,7 +58,7 @@
 
                         // Crear y guardar la compra
                         Compra compra = new Compra();
-                        compra.setIdCliente(b.getIdCliente());  // Asumiendo que el objeto Cliente tiene un método getId()
+                        compra.setIdCliente(b.getIdCliente());  // Asumiendo que el objeto Cliente tiene un mtodo getId()
                         compra.setIdProducto(id);
                         compra.setNumero(numero);
                         compra.setCantidad(quantity);
@@ -69,7 +69,7 @@
                 
                 clienteDAO.actualizaCliente(b);
                 
-                // Responder con un JSON de éxito
+                // Responder con un JSON de xito
                 response.setContentType("application/json");
                 response.getWriter().write("{\"status\": \"ok\"}");
             } else {
@@ -82,3 +82,5 @@
 
     </body>
 </html>
+
+

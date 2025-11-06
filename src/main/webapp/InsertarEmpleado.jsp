@@ -1,4 +1,4 @@
-<%--
+﻿<%--
     Document   : insertarEmpleado
     Created on : 1/11/2013, 06:10:15 PM
     Author     : Search
@@ -13,7 +13,7 @@
         <script type="text/javascript">
             function permite(elEvento, permitidos) { // Variables que definen los caracteres permitidos 
                 var numeros = "0123456789";
-                var caracteres = " abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+                var caracteres = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 var numeros_caracteres = numeros + caracteres;
                 var teclas_especiales = [8, 37, 39, 46];
                 switch (permitidos) {
@@ -67,7 +67,7 @@
                 valor2 = document.getElementById("password").value;
 
                 if (isNaN(valor2)) {
-                    alert("*Campo vacio...Indica un acontraseña");
+                    alert("*Campo vacio...Indica un acontrasea");
                     //return false; 
                 }
 
@@ -158,8 +158,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <input id="password" name="password" placeholder="Contraseña"
-                                   title="Contraseña" type="password" value="" size="25" onkeypress="return permite(event, 'num_car')"/>
+                            <input id="password" name="password" placeholder="Contrasea"
+                                   title="Contrasea" type="password" value="" size="25" onkeypress="return permite(event, 'num_car')"/>
                         </td>
                     </tr>
                     <tr>
@@ -255,7 +255,7 @@
                 <tr>
                     <th>Numero empleado</th>
                     <th>Nombre empleado</th>
-                    <th>Contraseña</th>
+                    <th>Contrasea</th>
                     <th>Apellido paterno</th>
                     <th>Apellido materno</th>
                     <th>Fecha de nacimiento</th>
@@ -293,4 +293,6 @@
     %>
 </body>
 </html>
+
+
 
